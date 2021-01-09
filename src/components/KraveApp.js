@@ -3,6 +3,7 @@ import {Route, HashRouter as Router} from 'react-router-dom'
 
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
+import SignUpForm from './SignUpForm'
 
 class KraveApp extends React.Component {
 
