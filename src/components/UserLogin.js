@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios'
+// import axios from 'axios'
 
 class UserLogin extends React.Component {
 
@@ -27,7 +27,7 @@ class UserLogin extends React.Component {
               <div>
 
               <form onSubmit={this.handleSubmit}>
-                  <label className=>Login</label>
+                  <label className="">Login</label>
 
                   <br />
 
