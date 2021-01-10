@@ -4,6 +4,7 @@ import {Route, HashRouter as Router} from 'react-router-dom'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import SignUpForm from './SignUpForm'
+import MenuShowResults from './MenuShowResults'
 
 class KraveApp extends React.Component {
 
@@ -14,6 +15,7 @@ class KraveApp extends React.Component {
         <Router>
           <Route exact path="/" component={SearchForm} />
           <Route exact path="/results/:query" component={SearchResults} />
+          <Route exact path="/results/:query/menu"  component={MenuShowResults} />
         </Router>
       </div>
     );
