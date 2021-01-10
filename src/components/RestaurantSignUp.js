@@ -1,34 +1,36 @@
 import React from 'react'
-import axios from 'axios'
 import {config} from '../Constants'
+import axios from 'axios'
+// import {config} from '../Constants'
 
-// const BASE_URL = 'http://localhost:3000/restaurants'
 
 class RestaurantSignUp extends React.Component {
 
     state = {
         name: '',
         address: '',
-        cuisine: ''
+        cuisine: '',
+        menu_id: '',
+        user_id: ''
     }
 
     handleResNameChange = (ev) => {
         this.setState({
             name: ev.target.value
         });
-    } 
+    }
 
     handleResAddressChange = (ev) => {
         this.setState({
             address: ev.target.value
         });
-    } 
+    }
 
     handleResCusChange = (ev) => {
         this.setState({
             cuisine: ev.target.value
         });
-    } 
+    }
 
     handleSubmit = (ev) => {
         ev.preventDefault();
