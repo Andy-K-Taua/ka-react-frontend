@@ -36,6 +36,7 @@ class RestaurantSignUp extends React.Component {
             resAddress: this.state.resAddress,
             resCuisine: this.state.cuisine
         });
+        console.log('handleSubmit', this.handleSubmit);
     }
     render(){
         return(
@@ -47,7 +48,7 @@ class RestaurantSignUp extends React.Component {
                     <br />
 
                     <label className="inputLabel">Restaurant Address</label>
-                    <input type="text" onChange />
+                    <input type="text" onChange={this.handleResAddressChange} />
                     <br />
 
                     <label className="dropDown">Restaurant Owner or Customer?</label>
