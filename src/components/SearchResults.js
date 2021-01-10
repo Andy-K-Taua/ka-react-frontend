@@ -13,7 +13,6 @@ class SearchResults extends React.Component {
   componentDidMount(){
     axios.get(`${config.url.API_URL}/search`, {params: {search: this.props.match.params.query}})
     .then(response => {
-      console.log('search:', response);
       this.setState({search: response.data});
     })
     .catch(error => {
@@ -41,7 +40,7 @@ class SearchResults extends React.Component {
                     <td>{r.name}</td>
                     <td>{r.cuisine}</td>
                     <td>{r.address}</td>
-                    <td><Link to={`/results/:query/${r.menu_id}`}></Link></td>
+                    <td><Link to={`/results/${this.props.match.params.query}/${r.menu_id}`}>{r.menu_id}</Link></td>
                   </tr>
                 );
                 <Route exact path="/results/:query/menu" component={MenuShowResults}></Route>

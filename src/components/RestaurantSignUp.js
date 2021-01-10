@@ -1,7 +1,7 @@
 import React from 'react'
+import {config} from '../Constants'
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:3000/restaurants'
 
 class RestaurantSignUp extends React.Component {
 
@@ -15,23 +15,23 @@ class RestaurantSignUp extends React.Component {
         this.setState({
             resName: ev.target.value
         });
-    } 
+    }
 
     handleResAddressChange = (ev) => {
         this.setState({
             resAddress: ev.target.value
         });
-    } 
+    }
 
     handleResCusChange = (ev) => {
         this.setState({
             resCuisine: ev.target.value
         });
-    } 
+    }
 
     handleSubmit = (ev) => {
         ev.preventDefault();
-        axios.post(BASE_URL, {
+        axios.post(`${config.url.API_URL}`, {
             resName: this.state.name,
             resAddress: this.state.resAddress,
             resCuisine: this.state.cuisine
