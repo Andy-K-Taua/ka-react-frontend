@@ -1,34 +1,25 @@
-import React from 'react';
+import logo from './logo.svg';
 import './App.css';
-import UserLogin from './components/UserLogin';
 
-import {Route, HashRouter as Router} from 'react-router-dom';
-
-import 'bootstrap';
-
-class App extends React.Component {
-
-  render() {
-
-    return (
-      <div className="App">
-
-        <nav className="navbar navbar-light bg-light">
-          <div className="container-fluid">
-            <div className="navbar-brand">This is working</div>
-          </div>
-        </nav>
-
-
-        <Router>
-              <Route exact path="/user" component={UserLogin} />
-        </Router>
-
-              </div>
-            );
-
-          } // render()
-
-        } // class App
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
 
 export default App;
