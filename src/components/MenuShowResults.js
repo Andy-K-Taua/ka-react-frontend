@@ -11,16 +11,16 @@ class MenuShowResults extends React.Component {
     .then(response => {
       console.log('response', response);
     })
+    .catch(console.warn)
   }
 
   render(){
-    return
-    <div>
-      <h1>Hello</h1>
-    </div>
+    return(
+      <div>
+        <h1>Hello</h1>
+      </div>
 
-
-
+    ) // return
 
   } // render
 

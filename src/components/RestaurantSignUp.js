@@ -1,42 +1,44 @@
 import React from 'react'
 import axios from 'axios'
+import {config} from '../Constants'
 
-const BASE_URL = 'http://localhost:3000/restaurants'
+// const BASE_URL = 'http://localhost:3000/restaurants'
 
 class RestaurantSignUp extends React.Component {
 
     state = {
-        resName: '',
-        resAddress: '',
-        resCuisine: ''
+        name: '',
+        address: '',
+        cuisine: ''
     }
 
     handleResNameChange = (ev) => {
         this.setState({
-            resName: ev.target.value
+            name: ev.target.value
         });
     } 
 
     handleResAddressChange = (ev) => {
         this.setState({
-            resAddress: ev.target.value
+            address: ev.target.value
         });
     } 
 
     handleResCusChange = (ev) => {
         this.setState({
-            resCuisine: ev.target.value
+            cuisine: ev.target.value
         });
     } 
 
     handleSubmit = (ev) => {
         ev.preventDefault();
-        axios.post(BASE_URL, {
-            resName: this.state.name,
-            resAddress: this.state.resAddress,
-            resCuisine: this.state.cuisine
-        });
-        console.log('handleSubmit', this.handleSubmit);
+        axios.post(`${config.url.API_URL}/restaurants`, {
+            name: this.state.name,
+            address: this.state.address,
+            cuisine: this.state.cuisine
+        })
+        .then(console.log('handleSubmit', this.handleSubmit))
+        .catch(console.warn)
     }
     render(){
         return(
@@ -51,7 +53,7 @@ class RestaurantSignUp extends React.Component {
                     <input type="text" onChange={this.handleResAddressChange} />
                     <br />
 
-                    <label className="dropDown">Restaurant Owner or Customer?</label>
+                    <label className="dropDown">Cuisine Type</label>
                     <select value={this.state.userType} onChange={this.handleResCusChange}>
                         <option value="Select">Select</option>
                         <option value="Italian">Italian</option>

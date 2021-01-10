@@ -41,7 +41,7 @@ class SearchResults extends React.Component {
                     <td>{r.name}</td>
                     <td>{r.cuisine}</td>
                     <td>{r.address}</td>
-                    <td><Link to={`/results/:query/${r.menu_id}`}></Link></td>
+                    <td><Link to={`/results/:query/${r.menu_id}`}>{r.menu_id}</Link></td>
                   </tr>
                 );
                 <Route exact path="/results/:query/menu" component={MenuShowResults}></Route>
