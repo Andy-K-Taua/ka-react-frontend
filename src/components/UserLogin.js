@@ -59,8 +59,8 @@ class UserLogin extends React.Component {
               </div>
           </div>
 
-      ) // return
-  } // render
+      ) // return()
+  } // render()
 } // UserLogin()
 
 export default UserLogin

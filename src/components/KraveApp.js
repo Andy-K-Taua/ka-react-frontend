@@ -1,5 +1,6 @@
 import React from 'react'
 import {Route, Link, HashRouter as Router} from 'react-router-dom'
+import axios from 'axios'
 
 import RestaurantSignUp from './RestaurantSignUp'
 import Restaurant from './Restaurant'
@@ -8,7 +9,6 @@ import SearchResults from './SearchResults'
 import SignUpForm from './SignUpForm'
 import MenuShowResults from './MenuShowResults'
 import UserLogin from './UserLogin'
-import axios from 'axios'
 import RestaurantShow from './RestaurantShow'
 
 class KraveApp extends React.Component {
@@ -29,7 +29,7 @@ handleLogout(){
         <Router>
         <nav>
           <Link to="/restaurants/signup">New Restaurant</Link>
-          <Link to="/" onClick={this.handleLogout}>Log out</Link>
+          <Link to="/" onClick={this.handleLogout}>    Log Out</Link>
         </nav>
 
           <Route exact path="/" component={SearchForm} />
