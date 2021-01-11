@@ -3,11 +3,9 @@ import {Route, Link, HashRouter as Router} from 'react-router-dom'
 import axios from 'axios'
 
 import RestaurantSignUp from './RestaurantSignUp'
-import Restaurant from './Restaurant'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import SignUpForm from './SignUpForm'
-import MenuShowResults from './MenuShowResults'
 import UserLogin from './UserLogin'
 import RestaurantShow from './RestaurantShow'
 
@@ -31,11 +29,9 @@ handleLogout(){
           <Link to="/restaurants/signup">New Restaurant</Link>
           <Link to="/" onClick={this.handleLogout}>    Log Out</Link>
         </nav>
-
           <Route exact path="/" component={SearchForm} />
           <Route exact path="/results/:query" component={SearchResults} />
           <Route exact path="/restaurant/:id" component={RestaurantShow} />
-          <Route exact path="menu/:id"  component={MenuShowResults} />
           <Route exact path="/restaurants/signup" component={RestaurantSignUp} />
           <Route exact path="/login" component={UserLogin} />
         </Router>
