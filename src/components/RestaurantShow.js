@@ -1,5 +1,6 @@
 import React from 'react';
 import MenuShowResults from './MenuShowResults';
+import axios from 'axios'
 
 class RestaurantShow extends React.Component {
 
@@ -8,11 +9,11 @@ class RestaurantShow extends React.Component {
   }
 
 
-
   render(){
     return(
       <div>
-        <h1></h1>
+        <h1>Your Restaurant</h1>
+
       </div>
     )
   } // render
