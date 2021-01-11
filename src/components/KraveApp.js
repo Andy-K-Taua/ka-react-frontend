@@ -2,6 +2,7 @@ import React from 'react'
 import {Route, Link, HashRouter as Router} from 'react-router-dom'
 
 import RestaurantSignUp from './RestaurantSignUp'
+import Restaurant from './Restaurant'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import SignUpForm from './SignUpForm'

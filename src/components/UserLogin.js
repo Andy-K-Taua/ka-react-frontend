@@ -26,13 +26,13 @@ class UserLogin extends React.Component {
               <h2>Login</h2>
               <div>
 
-              <form onSubmit={this.handleSubmit}>
+              {/* <form onSubmit={this.handleSubmit}>
                   <label className="Login">Login</label>
 
-                  <br />
+                  <br /> */}
 
 
-              </form>
+              {/* </form> */}
               </div>
           </div>
 

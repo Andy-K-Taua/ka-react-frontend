@@ -48,9 +48,8 @@ class MenuShowResults extends React.Component {
         </tbody>
       </table>
     </div>
-    )
 
-
+    ) // return
 
   } // render
 
