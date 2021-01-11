@@ -8,9 +8,19 @@ import SearchResults from './SearchResults'
 import SignUpForm from './SignUpForm'
 import MenuShowResults from './MenuShowResults'
 import UserLogin from './UserLogin'
+import axios from 'axios'
 import RestaurantShow from './RestaurantShow'
 
 class KraveApp extends React.Component {
+
+componentDidMount(){
+  axios.defaults.headers.common["Authorization"]=localStorage.getItem("jwtToken")
+}
+
+handleLogout(){
+  localStorage.setItem("jwtToken", null);
+  axios.defaults.headers.common["Authorization"]=null;
+}
 
   render() {
 
@@ -19,6 +29,7 @@ class KraveApp extends React.Component {
         <Router>
         <nav>
           <Link to="/restaurants/signup">New Restaurant</Link>
+          <Link to="/" onClick={this.handleLogout}>Log out</Link>
         </nav>
 
           <Route exact path="/" component={SearchForm} />
@@ -26,6 +37,7 @@ class KraveApp extends React.Component {
           <Route exact path="/restaurant/:id" component={RestaurantShow} />
           <Route exact path="menu/:id"  component={MenuShowResults} />
           <Route exact path="/restaurants/signup" component={RestaurantSignUp} />
+          <Route exact path="/login" component={UserLogin} />
         </Router>
       </div>
     );
