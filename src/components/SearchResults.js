@@ -2,7 +2,7 @@ import React from 'react'
 import {config} from '../Constants'
 import axios from 'axios'
 import {Route, Link, HashRouter as Router} from 'react-router-dom'
-import MenuShowResults from './MenuShowResults';
+import RestaurantShow from './RestaurantShow';
 
 class SearchResults extends React.Component {
 
@@ -29,7 +29,6 @@ class SearchResults extends React.Component {
               <th>Restaurant</th>
               <th>Cuisine</th>
               <th>Address</th>
-              <th>Menu</th>
             </tr>
           </thead>
           <tbody>
@@ -37,13 +36,12 @@ class SearchResults extends React.Component {
               this.state.search.map(r => {
                 return (
                   <tr key={r.id}>
-                    <td>{r.name}</td>
+                    <td><Link to={`/restaurant/${r.id}`}>{r.name}</Link></td>
                     <td>{r.cuisine}</td>
                     <td>{r.address}</td>
-                    <td><Link to={`/results/${this.props.match.params.query}/${r.menu_id}`}>{r.menu_id}</Link></td>
                   </tr>
                 );
-                <Route exact path="/results/:query/menu" component={MenuShowResults}></Route>
+                <Route exact path="/restaurant/:id" component={RestaurantShow}></Route>
               })
             }
           </tbody>
