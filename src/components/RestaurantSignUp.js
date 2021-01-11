@@ -37,9 +37,9 @@ class RestaurantSignUp extends React.Component {
         axios.post(`${config.url.API_URL}/restaurants`, {
             name: this.state.name,
             address: this.state.address,
-            cuisine: this.state.cuisine
+            cuisine: this.state.cuisine,
         })
-        .then(console.log('handleSubmit', this.handleSubmit))
+        .then(res => console.log('res:', res))
         .catch(console.warn)
     }
     render(){
