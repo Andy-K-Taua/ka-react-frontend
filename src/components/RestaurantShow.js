@@ -37,7 +37,7 @@ class RestaurantShow extends React.Component {
               this.state.menuItems.map(r => {
                 return (
                   <tr key={r.id}>
-                    <td><img src={r.image}></img></td>
+                    <td><img src={r.image} alt=""></img></td>
                     <td>{r.menu_item}</td>
                     <td>{r.item_description}</td>
                   </tr>
