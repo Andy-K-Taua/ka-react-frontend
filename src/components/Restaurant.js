@@ -13,7 +13,7 @@ class Restaurant extends React.Component {
     render(){
         return(
             <div>
-
+                
             </div>
         ) // return
 

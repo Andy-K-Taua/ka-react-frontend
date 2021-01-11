@@ -1,17 +1,23 @@
 import React from 'react';
 import {config} from '../Constants';
 import axios from 'axios';
+import {Route, Link, HashRouter as Router} from 'react-router-dom'
 
 class MenuShowResults extends React.Component {
 
+  state = {
+    image: '',
+    menu_item: '',
+    item_description: ''
+  }
+
 
   componentDidMount(){
-    axios.get(`${config.url.API_URL}/:query/menu`, this.props.data.menu_id)
-    .then(response => {
-      console.log('response', response);
+    axios.get(`${config.url.API_URL}/menus/:query/menu`, {image: this.state.image, menu_item: this.state.menu_item, item_description: this.state.item_description})
+    .then( response => {
+      console.log('response:', response);
     })
-    .catch(console.warn)
-    console.log("Mounted");
+    .catch(console.warn);
   }
 
   render(){
@@ -33,8 +39,10 @@ class MenuShowResults extends React.Component {
                   <td>{r.image}</td>
                   <td>{r.menu_item}</td>
                   <td>{r.item_description}</td>
-                </tr>
-              );
+                    <td><Link to={`/results/${this.props.match.params.query}/${r.menu_id}`}>{r.menu_id}</Link></td>
+                    </tr>
+                    );
+                    <Route exact path="/results/:query/menu" component={MenuShowResults}></Route>
             })
           }
         </tbody>
