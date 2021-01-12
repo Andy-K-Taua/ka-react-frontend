@@ -1,4 +1,9 @@
 import React from 'react'
+import Image from 'react-bootstrap/Image';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 class SearchForm extends React.Component {
 
@@ -19,11 +24,14 @@ class SearchForm extends React.Component {
 
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="search">Search for a restaurant or cuisine!</label>
-          <input type="text" id="search" placeholder="What are you kraving today?" onChange={this.handleChange}></input>
-          <button>Search!</button>
-        </form>
+        <div className="backgroundImg">
+            <form onSubmit={this.handleSubmit}>
+              <Form.Group>
+                      <Form.Control size="lg" type="text" id="search" placeholder="What are you kraving today?" onChange={this.handleChange} />
+                      <Button type="submit" variant="secondary">Search</Button>
+              </Form.Group>
+            </form>
+        </div>
       </div>
     )
   } // render()

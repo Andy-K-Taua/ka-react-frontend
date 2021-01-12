@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.mainImage {
+  position: relative;
+  height: auto;
+}
+
+.fixedSearch {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  right: 30%;
+}
+
+.backgroundImg {
+  background-image: url("images/KraveMainImage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 100%;
+  opacity: 0.5;
+  height: 100vh;
+}
