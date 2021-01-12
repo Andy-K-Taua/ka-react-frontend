@@ -10,6 +10,7 @@ import SignUpForm from './SignUpForm'
 import UserLogin from './UserLogin'
 import RestaurantShow from './RestaurantShow'
 import GoogleMaps from './GoogleMaps'
+import NavBar from './NavBar';
 
 class KraveApp extends React.Component {
 
@@ -17,21 +18,14 @@ componentDidMount(){
   axios.defaults.headers.common["Authorization"]=localStorage.getItem("jwtToken")
 }
 
-handleLogout(){
-  localStorage.setItem("jwtToken", null);
-  axios.defaults.headers.common["Authorization"]=null;
-}
+
 
   render() {
 
     return (
       <div>
+        <NavBar />
         <Router>
-        <nav>
-          <Link to="/restaurants/signup">New Restaurant</Link>
-          <Link to="/signup">New User</Link>
-          <Link to="/" onClick={this.handleLogout}>    Log Out</Link>
-        </nav>
           <Route exact path="/" component={SearchForm} />
           <Route exact path="/results/:query" component={SearchResults} />
           <Route exact path="/restaurant/:id" component={RestaurantShow} />
@@ -40,7 +34,13 @@ handleLogout(){
           <Route exact path="/login" component={UserLogin} />
         </Router>
 
+
         <GoogleMaps />
+        <div className="footer">
+          <footer>
+            &copy; Krave 2021 - All Right Reserved.
+          </footer>
+        </div>
       </div>
     );
   } // render()

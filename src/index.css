@@ -12,16 +12,24 @@ code {
     monospace;
 }
 
-.mainImage {
-  position: relative;
-  height: auto;
+.fixedSearch {
+  display: inline-block;
+  /* margin-right: auto;
+  margin-left: auto; */
+  /* width: 100px;
+  position: absolute;*/
 }
 
-.fixedSearch {
+.searchButton {
+  grid-column: 4/5;
+  grid-row: 2/3;
+}
+
+.searchBar {
   position: absolute;
-  top: 50%;
-  left: 30%;
-  right: 30%;
+  left: calc(50% - 60px);
+  top: 50vh;
+  width: 100px;
 }
 
 .backgroundImg {
@@ -32,4 +40,14 @@ code {
   max-width: 100%;
   opacity: 0.5;
   height: 100vh;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar {
+  text-align: right;
 }
