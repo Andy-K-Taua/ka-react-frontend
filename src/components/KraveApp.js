@@ -27,12 +27,14 @@ handleLogout(){
         <Router>
         <nav>
           <Link to="/restaurants/signup">New Restaurant</Link>
+          <Link to="/signup">New User</Link>
           <Link to="/" onClick={this.handleLogout}>    Log Out</Link>
         </nav>
           <Route exact path="/" component={SearchForm} />
           <Route exact path="/results/:query" component={SearchResults} />
           <Route exact path="/restaurant/:id" component={RestaurantShow} />
           <Route exact path="/restaurants/signup" component={RestaurantSignUp} />
+          <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={UserLogin} />
         </Router>
       </div>
