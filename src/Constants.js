@@ -1,7 +1,7 @@
 // Production variables
 const prod = {
   url: {
-    API_URL: 'Placeholder'
+    API_URL: 'https://krave-app.herokuapp.com'
   }
 };
 

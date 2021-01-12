@@ -19,7 +19,6 @@ class RestaurantShow extends React.Component {
 
   }
 
-
   render(){
     return(
       <div>
