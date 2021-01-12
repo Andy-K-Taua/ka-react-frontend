@@ -12,28 +12,24 @@ code {
     monospace;
 }
 
-a {
-  padding-left: 150px;
+.mainImage {
+  position: relative;
+  height: auto;
 }
 
-hr {
-      margin-bottom: 50px;
-      margin-top: 50px;
+.fixedSearch {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  right: 30%;
 }
 
-h2 {
-  margin-bottom: 50px;
-  padding-left: 40px;
+.backgroundImg {
+  background-image: url("images/KraveMainImage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 100%;
+  opacity: 0.5;
+  height: 100vh;
 }
-
-/* form {
-  margin-top: 20px;
-    margin-left: 50px;
-    padding-bottom: 50px;
-    padding-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-    width: 200px;
-    height: 400px;
-    margin-right: 50px;
-} */

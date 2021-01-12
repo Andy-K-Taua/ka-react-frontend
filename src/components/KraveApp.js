@@ -11,6 +11,7 @@ import UserLogin from './UserLogin'
 import RestaurantShow from './RestaurantShow'
 import GoogleMaps from './GoogleMaps'
 
+
 class KraveApp extends React.Component {
 
 componentDidMount(){
@@ -30,7 +31,7 @@ handleLogout(){
         <nav>
           <Link to="/restaurants/signup">New Restaurant</Link>
           <Link to="/signup">New User</Link>
-          <Link to="/" onClick={this.handleLogout}>    Log Out</Link>
+          <Link to="/" onClick={this.handleLogout}>Log Out</Link>
         </nav>
           <Route exact path="/" component={SearchForm} />
           <Route exact path="/results/:query" component={SearchResults} />

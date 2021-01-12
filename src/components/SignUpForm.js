@@ -13,6 +13,14 @@ class SignUpForm extends React.Component {
         password_confirmation:''
     }
 
+    handleChangeType = (ev) => {
+         if (ev.target.value==="Customer"){
+           this.setState({authorisation: 2});
+         }else if (ev.target.value==="Restaurant Owner"){
+           this.setState({authorisation: 1});
+         }
+    }
+
     handleUseNamChangeType = (ev) => {
         this.setState(
             {name: ev.target.value}
@@ -67,11 +75,11 @@ class SignUpForm extends React.Component {
                     <br />
 
                     <label className="inputLabel">User password</label>
-                    <input type="text" onChange={this.handlePassChangeType} />
+                    <input type="password" onChange={this.handlePassChangeType} />
                     <br />
 
                     <label className="inputLabel">Confirmation password</label>
-                    <input type="text" onChange={this.handlePassConChangeType} />
+                    <input type="password" onChange={this.handlePassConChangeType} />
                     <br />
 
 
