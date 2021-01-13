@@ -1,5 +1,9 @@
 import React from 'react';
 import axios from 'axios'
+import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import {config} from '../Constants'
 
 class UserLogin extends React.Component {
@@ -36,31 +40,39 @@ class UserLogin extends React.Component {
       });
   }
   render(){
-      return(
+    return(
+      <div>
+        <h2 className="signupHeading">Login</h2>
           <div>
-              <hr />
-              <h2>Login</h2>
-              <div>
-
-              <form onSubmit={this.handleSubmit}>
-                  <label className="Email">Email
-                   <input type="text" onChange={this.handleChangeEmail}/>
-                  </label>
-                  <label className="Password">Login Password
-                   <input type="password" onChange={this.handleChangePassword}/>
-                  </label>
-                  <button>Login</button>
-                  <br />
-
-              </form>
-
-
-
-              </div>
+            <Form onSubmit={this.handleSubmit}>
+                <Form.Group as={Row} controlId="formHotizontalEmail">
+                  <Form.Label column sm={1} className="Email">Email</Form.Label>
+                    <Col sm={3}>
+                      <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        onChange={this.handleChangeEmail}/>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} controlId="formHorizontalPassword">
+                  <Form.Label column sm={1} className="Password">Login Password</Form.Label>
+                    <Col sm={3}>
+                      <Form.Control
+                        type="password"
+                        placeholder="Enter password"
+                        onChange={this.handleChangePassword}/>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                  <Col sm={{ span: 10, offset: 1 }}>
+                    <Button variant="primary" type="submit">Login</Button>
+                  </Col>
+                </Form.Group>
+            </Form>
           </div>
-
-      ) // return
-  } // render
+      </div>
+    ) // return()
+  } // render()
 } // UserLogin()
 
 export default UserLogin

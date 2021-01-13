@@ -1,16 +1,16 @@
 import React from 'react'
+import axios from 'axios'
 import {Route, Link, HashRouter as Router} from 'react-router-dom'
-
-
 import RestaurantSignUp from './RestaurantSignUp'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import SignUpForm from './SignUpForm'
 import UserLogin from './UserLogin'
-import axios from 'axios'
 import RestaurantShow from './RestaurantShow'
 import GoogleMaps from './GoogleMaps'
 // import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import NavBar from './NavBar';
+import ControlPanel from './ControlPanel'
 
 class KraveApp extends React.Component {
 
@@ -18,28 +18,30 @@ componentDidMount(){
   axios.defaults.headers.common["Authorization"]=localStorage.getItem("jwtToken")
 }
 
-handleLogout(){
-  localStorage.setItem("jwtToken", null);
-  axios.defaults.headers.common["Authorization"]=null;
-}
+
 
   render() {
 
     return (
       <div>
+        <NavBar />
         <Router>
-        <nav>
-          <Link to="/restaurants/signup">New Restaurant</Link>
-          <Link to="/" onClick={this.handleLogout}>Log out</Link>
-        </nav>
           <Route exact path="/" component={SearchForm} />
           <Route exact path="/results/:query" component={SearchResults} />
           <Route exact path="/restaurant/:id" component={RestaurantShow} />
           <Route exact path="/restaurants/signup" component={RestaurantSignUp} />
+          <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={UserLogin} />
+          <Route exact path="/control" component={ControlPanel} />
         </Router>
 
 
+
+        <div className="footer">
+          <footer>
+            &copy; Krave 2021 - All Right Reserved.
+          </footer>
+        </div>
       </div>
     );
   } // render()

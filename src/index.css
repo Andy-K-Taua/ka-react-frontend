@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.fixedSearch, .searchButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
+.backgroundImg {
+  background-image: url("images/KraveMainImage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 100%;
+  opacity: 0.5;
+  height: 100vh;
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar {
+  text-align: right;
+}
+
+.signupHeading {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.formLayout {
+  margin-top: 20px;
+  align-items: center;
+}
