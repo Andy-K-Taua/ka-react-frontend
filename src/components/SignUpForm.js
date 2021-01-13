@@ -18,6 +18,14 @@ class SignUpForm extends React.Component {
         password_confirmation:''
     }
 
+    handleChangeType = (ev) => {
+         if (ev.target.value==="Customer"){
+           this.setState({authorisation: 2});
+         }else if (ev.target.value==="Restaurant Owner"){
+           this.setState({authorisation: 1});
+         }
+    }
+
     handleUseNamChangeType = (ev) => {
         this.setState(
             {name: ev.target.value}
