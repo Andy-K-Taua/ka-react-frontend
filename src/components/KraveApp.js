@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Route, Link, HashRouter as Router} from 'react-router-dom'
-import { GoogleMap, UseJsApiLoader } from '@react-google-maps/api'
+// import { GoogleMap, UseJsApiLoader } from '@react-google-maps/api'
 
 import RestaurantSignUp from './RestaurantSignUp'
 import SearchForm from './SearchForm'
@@ -9,7 +9,8 @@ import SearchResults from './SearchResults'
 import SignUpForm from './SignUpForm'
 import UserLogin from './UserLogin'
 import RestaurantShow from './RestaurantShow'
-import GoogleMaps from './GoogleMaps'
+// import GoogleMaps from './GoogleMaps'
+import ControlPanel from './ControlPanel'
 
 class KraveApp extends React.Component {
 
@@ -38,9 +39,10 @@ handleLogout(){
           <Route exact path="/restaurants/signup" component={RestaurantSignUp} />
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={UserLogin} />
+          <Route exact path="/control" component={ControlPanel} />
         </Router>
 
-        <GoogleMaps />
+        {/* <GoogleMaps /> */}
       </div>
     );
   } // render()
