@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import {config} from '../Constants'
+import axios from 'axios'
  
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
  
 class SimpleMap extends Component {
   static defaultProps = {
     center: {
-      lat: '',
-      lng: ''
+      lat: 59.955413,
+      lng: 30.337844
     },
     zoom: 11
   };
@@ -25,13 +27,19 @@ class SimpleMap extends Component {
          this.setState({
            lat: position.coords.latitude,
            lng: position.coords.longitude
-         });
-       }, // end of success
-       () => {
+        });
+      }, // end of success
+      () => {
         // error
         console.log('Could not access GPS data');
-       });
+      });
     } // else
+    // request to see nearby restaurants
+    axios.get(`${config.url.API_URL}/restaurants/location-search`, {params: {lat: -38.01, lng: 144.38}})
+     .then(response => {
+     console.log('Response', response)
+     })
+     .catch(error => console.warn(error));
  } // componentDidMount()
  
   render() {
