@@ -1,6 +1,8 @@
 import React from 'react';
 import {config} from '../Constants'
 import axios from 'axios'
+import { GoogleMap, UseJsApiLoader } from '@react-google-maps/api'
+import GoogleMaps from './GoogleMaps'
 
 class RestaurantShow extends React.Component {
 
@@ -18,6 +20,7 @@ class RestaurantShow extends React.Component {
     .catch(console.warn);
 
   }
+
 
   render(){
     return(
@@ -44,6 +47,7 @@ class RestaurantShow extends React.Component {
             }
           </tbody>
         </table>
+        <GoogleMaps />
       </div>
     )
   } // render
