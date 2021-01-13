@@ -7,8 +7,6 @@ import SearchResults from './SearchResults'
 import SignUpForm from './SignUpForm'
 import UserLogin from './UserLogin'
 import RestaurantShow from './RestaurantShow'
-import GoogleMaps from './GoogleMaps'
-// import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import NavBar from './NavBar';
 import ControlPanel from './ControlPanel'
 
