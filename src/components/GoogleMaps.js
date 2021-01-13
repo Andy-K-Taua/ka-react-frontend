@@ -1,49 +1,58 @@
-import React from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import React, { Component } from 'react';
+import GoogleMapReact from 'google-map-react';
+ 
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+ 
+class SimpleMap extends Component {
+  static defaultProps = {
+    center: {
+      lat: '',
+      lng: ''
+    },
+    zoom: 11
+  };
 
-// Install the API in your terminal via the command "npm i -S @react-google-maps/api"
+  componentDidMount(){
+    if(!navigator.geolocation) {
+      // TODO: Set error message into state
+      // status.textContent = 'Geolocation is not supported by your browser';
+    } else {
 
-const containerStyle = {
-    width: '400px',
-    height: '400px'
-};
+      // status.textContent = 'Locating…';
+      navigator.geolocation.getCurrentPosition(
+       (position) => {
+         // success
+         this.setState({
+           lat: position.coords.latitude,
+           lng: position.coords.longitude
+         });
+       }, // end of success
+       () => {
+        // error
+        console.log('Could not access GPS data');
+       });
+    } // else
+ } // componentDidMount()
+ 
+  render() {
 
-const center = {
-    lat: -38.0229,
-    lng: 144.3964
-};
-
-function GoogleMaps() {
-    const {isLoaded} = useJsApiLoader({
-        id: 'google-map-script',
-        googleMapsApiKey: ''
-    })
-
-    const [map, setMap] = React.useState(null)
-
-    const onLoad = React.useCallback(function callback(map) {
-        const bounds = new window.google.maps.LatLngBounds();
-        map.fitBounds(bounds)
-        setMap(map)
-    }, [])
-
-    const onUnmount = React.useCallback(function callback(map) {
-        setMap(null)
-    }, [])
-
-    return isLoaded ? (
-        <GoogleMap
-         mapContainerStyle={containerStyle}
-         center={center}
-         zoom={10}
-         onLoad={onLoad}
-         onUnmount={onUnmount}
+    return (
+      // Important! Always set the container height explicitly
+      <div style={{ height: '100vh', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: 'AIzaSyDR191L1r3AZQruQBZ38g7SekFs78a5b3U' }}
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
         >
-        {/* This is where we add our restaurants */}
-            <></>
-        </GoogleMap>
-    ) : <></>
+          <AnyReactComponent
+            lat={59.955413}
+            lng={30.337844}
+            text="My Marker"
+          />
+        </GoogleMapReact>
+      </div>
+    );
+  }
 }
-
-export default React.memo(GoogleMaps)
-
+ 
+export default SimpleMap;
