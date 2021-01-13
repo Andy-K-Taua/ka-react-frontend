@@ -12,28 +12,53 @@ code {
     monospace;
 }
 
-a {
-  padding-left: 150px;
+.fixedSearch {
+  display: inline-block;
+  /* margin-right: auto;
+  margin-left: auto; */
+  /* width: 100px;
+  position: absolute;*/
 }
 
-hr {
-      margin-bottom: 50px;
-      margin-top: 50px;
+.searchButton {
+  grid-column: 4/5;
+  grid-row: 2/3;
 }
 
-h2 {
-  margin-bottom: 50px;
-  padding-left: 40px;
+.searchBar {
+  position: absolute;
+  left: calc(50% - 60px);
+  top: 50vh;
+  width: 100px;
 }
 
-/* form {
+.backgroundImg {
+  background-image: url("images/KraveMainImage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 100%;
+  opacity: 0.5;
+  height: 100vh;
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar {
+  text-align: right;
+}
+
+.signupHeading {
   margin-top: 20px;
-    margin-left: 50px;
-    padding-bottom: 50px;
-    padding-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-    width: 200px;
-    height: 400px;
-    margin-right: 50px;
-} */
+  text-align: center;
+}
+
+.formLayout {
+  margin-top: 20px;
+  align-items: center;
+}

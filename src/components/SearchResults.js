@@ -4,6 +4,7 @@ import axios from 'axios'
 import {Route, Link, HashRouter as Router} from 'react-router-dom'
 import RestaurantShow from './RestaurantShow';
 
+
 class SearchResults extends React.Component {
 
   state = {

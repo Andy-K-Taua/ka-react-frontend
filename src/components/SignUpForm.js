@@ -1,6 +1,11 @@
 import React from 'react'
 import axios from 'axios'
 import {config} from '../Constants'
+import Form from 'react-bootstrap/Form';
+import FormGroup from 'react-bootstrap/FormGroup';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 
 class SignUpForm extends React.Component {
@@ -11,6 +16,14 @@ class SignUpForm extends React.Component {
         email: '',
         password: '',
         password_confirmation:''
+    }
+
+    handleChangeType = (ev) => {
+         if (ev.target.value==="Customer"){
+           this.setState({authorisation: 2});
+         }else if (ev.target.value==="Restaurant Owner"){
+           this.setState({authorisation: 1});
+         }
     }
 
     handleUseNamChangeType = (ev) => {
@@ -44,45 +57,72 @@ class SignUpForm extends React.Component {
 
     render(){
         return(
+          <div>
             <div>
-                <hr />
-                <h2>Sign Up Here</h2>
-                <div>
-
-                <form onSubmit={this.handleSubmit}>
-                    <label className="dropDown">Restaurant Owner or Customer?</label>
-                    <select value={this.state.userType} onChange={this.handleChangeType}>
-                        <option value="Select">Select</option>
-                        <option value="Restaurant Owner">Restaurant Owner</option>
-                        <option value="Customer">Customer</option>
-                    </select>
-                    <br />
-
-                    <label className="inputLabel">User Name</label>
-                    <input type="text" onChange={this.handleUseNamChangeType} />
-                    <br />
-
-                    <label className="inputLabel">User Email</label>
-                    <input type="text" onChange={this.handleUseEmaChangeType} />
-                    <br />
-
-                    <label className="inputLabel">User password</label>
-                    <input type="text" onChange={this.handlePassChangeType} />
-                    <br />
-
-                    <label className="inputLabel">Confirmation password</label>
-                    <input type="text" onChange={this.handlePassConChangeType} />
-                    <br />
-
-
-                  <button>Create User Account</button>
-
-                </form>
+              <h2 className="signupHeading">Sign Up Here</h2>
+                <Form>
+                  <form onSubmit={this.handleSubmit}>
+                    <div className="formLayout">
+                    <Form.Group as={Row} controlId="formHorizontalSelect">
+                      <Form.Label  column sm={2} className="dropDown">Restaurant Owner or Customer?</Form.Label>
+                        <Col sm={5}>
+                          <Form.Control
+                            as="select"
+                            value={this.state.userType} onChange={this.handleChangeType}>
+                            <option>Select</option>
+                            <option>Restaurant Owner</option>
+                            <option>Customer</option>
+                          </Form.Control>
+                          </Col>
+                    </Form.Group>
+                    <Form.Group as={Row} controlId="formHorizontalName">
+                      <Form.Label column sm={2}>User Name</Form.Label>
+                        <Col sm={5}>
+                          <Form.Control
+                            type="name"
+                            placeholder="Enter you name"
+                            onChange={this.handleUseNamChangeType} />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group as={Row} controlId="formHorizontalEmail">
+                      <Form.Label column sm={2}>User Email</Form.Label>
+                        <Col sm={5}>
+                          <Form.Control
+                            type="email"
+                            placeholder="Enter your email"
+                            onChange={this.handleUseEmaChangeType} />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group as={Row} controlId="formBasicPassword">
+                      <Form.Label column sm={2}>Enter password</Form.Label>
+                        <Col sm={5}>
+                          <Form.Control
+                            type="password"
+                            placeholder="Enter new password"
+                            onChange={this.handlePassChangeType} />
+                      </Col>
+                    </Form.Group>
+                    <Form.Group as={Row} controlId="formBasicConfPassword">
+                      <Form.Label column sm={2}>Confirm password</Form.Label>
+                        <Col sm={5}>
+                          <Form.Control
+                            type="text"
+                            placeholder="confir password"
+                            onChange={this.handlePassConChangeType} />
+                      </Col>
+                  </Form.Group>
+                  <Form.Group as={Row}>
+                    <Col sm={{ span: 10, offset: 2 }}>
+                      <Button variant="primary" type="submit">Create Account</Button>
+                    </Col>
+                  </Form.Group>
                 </div>
-            </div>
-
-        ) // return
-    } // render
+              </form>
+            </Form>
+          </div>
+        </div>
+      ) // return
+  } // render
 } // classSignUpForm
 
 export default SignUpForm
