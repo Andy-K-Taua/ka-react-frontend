@@ -12,24 +12,11 @@ code {
     monospace;
 }
 
-.fixedSearch {
-  display: inline-block;
-  /* margin-right: auto;
-  margin-left: auto; */
-  /* width: 100px;
-  position: absolute;*/
-}
-
-.searchButton {
-  grid-column: 4/5;
-  grid-row: 2/3;
-}
-
-.searchBar {
-  position: absolute;
-  left: calc(50% - 60px);
-  top: 50vh;
-  width: 100px;
+.fixedSearch, .searchButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
 }
 
 .backgroundImg {

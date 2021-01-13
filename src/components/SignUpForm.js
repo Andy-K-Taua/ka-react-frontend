@@ -60,8 +60,7 @@ class SignUpForm extends React.Component {
           <div>
             <div>
               <h2 className="signupHeading">Sign Up Here</h2>
-                <Form>
-                  <form onSubmit={this.handleSubmit}>
+                <Form onSubmit={this.handleSubmit}>
                     <div className="formLayout">
                     <Form.Group as={Row} controlId="formHorizontalSelect">
                       <Form.Label  column sm={2} className="dropDown">Restaurant Owner or Customer?</Form.Label>
@@ -106,8 +105,8 @@ class SignUpForm extends React.Component {
                       <Form.Label column sm={2}>Confirm password</Form.Label>
                         <Col sm={5}>
                           <Form.Control
-                            type="text"
-                            placeholder="confir password"
+                            type="password"
+                            placeholder="confirm password"
                             onChange={this.handlePassConChangeType} />
                       </Col>
                   </Form.Group>
@@ -117,7 +116,6 @@ class SignUpForm extends React.Component {
                     </Col>
                   </Form.Group>
                 </div>
-              </form>
             </Form>
           </div>
         </div>
