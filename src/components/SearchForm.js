@@ -1,9 +1,6 @@
 import React from 'react'
-import Image from 'react-bootstrap/Image';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
-import FormControl from 'react-bootstrap/FormControl';
-import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -28,28 +25,21 @@ class SearchForm extends React.Component {
     return(
       <div>
         <div className="backgroundImg">
-          <Container>
-            <Row className="justify-content-md-center">
-                <form onSubmit={this.handleSubmit}>
-                  <InputGroup className="mb-3">
-                    <div className="searchBar">
-                      <Col sm={7}>
-                        <FormControl className="fixedSearch" type="text" aria-describedby="basic-addon2" id="search" placeholder="What are you kraving today?" onChange={this.handleChange} />
-                      </Col>
-                    <InputGroup.Append>
-                        <Row>
-                          <div className="searchButton">
-                          <Col sm={4}>
-                            <Button  type="submit" variant="secondary">Search</Button>
-                        </Col>
-                      </div>
-                      </Row>
-                    </InputGroup.Append>
-                </div>
-                  </InputGroup>
-                </form>
-              </Row>
-            </Container>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group as={Row} controlId="formHorizontalSearch">
+              <Form.Label column sm={2} className="searchBar"></Form.Label>
+                <Col sm={4}>
+                  <Form.Control
+                    type="text"
+                    placeholder="What are you kraving today?" onChange={this.handleChange} />
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Col sm={4}>
+                <Button  type="submit" variant="secondary">Search</Button>
+              </Col>
+            </Form.Group>
+          </Form>
         </div>
       </div>
     )

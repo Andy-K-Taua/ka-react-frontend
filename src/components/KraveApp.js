@@ -8,7 +8,7 @@ import SignUpForm from './SignUpForm'
 import UserLogin from './UserLogin'
 import RestaurantShow from './RestaurantShow'
 import NavBar from './NavBar';
-
+import ControlPanel from './ControlPanel'
 
 
 class KraveApp extends React.Component {
@@ -31,6 +31,7 @@ componentDidMount(){
           <Route exact path="/restaurants/signup" component={RestaurantSignUp} />
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={UserLogin} />
+          <Route exact path="/control" component={ControlPanel} />
         </Router>
 
 

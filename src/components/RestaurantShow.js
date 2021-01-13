@@ -24,14 +24,17 @@ class RestaurantShow extends React.Component {
 
   }
 
-  togglePopup() {
-    console.log("word clicked");
+  togglePopup = () => {
   this.setState({showPopup: !this.state.showPopup});
 }
 
   render(){
     return(
       <div>
+        {this.state.showPopup ?
+          <Popup text="Nutrtion" closePopup={this.togglePopup}/>
+          : null
+        }
         <table>
           <thead>
             <tr>
@@ -46,9 +49,7 @@ class RestaurantShow extends React.Component {
                 return (
                   <tr key={r.id}>
                     <td><img src={r.image} alt=""></img></td>
-
-                    <td onClick={this.togglePopup.bind(this)}>{r.menu_item}</td>
-
+                    <td onClick={this.togglePopup}>{r.menu_item}</td>
                     <td>{r.item_description}</td>
                   </tr>
                     );
