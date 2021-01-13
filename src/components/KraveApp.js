@@ -13,6 +13,7 @@ import GoogleMaps from './GoogleMaps'
 import NavBar from './NavBar';
 
 
+
 class KraveApp extends React.Component {
 
 componentDidMount(){
@@ -27,11 +28,6 @@ componentDidMount(){
       <div>
         <NavBar />
         <Router>
-        <nav>
-          <Link to="/restaurants/signup">New Restaurant</Link>
-          <Link to="/signup">New User</Link>
-          <Link to="/" onClick={this.handleLogout}>Log Out</Link>
-        </nav>
           <Route exact path="/" component={SearchForm} />
           <Route exact path="/results/:query" component={SearchResults} />
           <Route exact path="/restaurant/:id" component={RestaurantShow} />

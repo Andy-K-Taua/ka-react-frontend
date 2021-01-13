@@ -1,12 +1,15 @@
 import React from 'react';
 import {config} from '../Constants'
 import axios from 'axios'
+import Popup from './Popup';
 
 class RestaurantShow extends React.Component {
 
   state = {
     restaurant: {},
-    menuItems: []
+    menuItems: [],
+    showPopup: false
+
   }
 
   componentDidMount(){
@@ -18,6 +21,11 @@ class RestaurantShow extends React.Component {
     .catch(console.warn);
 
   }
+
+  togglePopup() {
+    console.log("word clicked");
+  this.setState({showPopup: !this.state.showPopup});
+}
 
   render(){
     return(
@@ -36,7 +44,9 @@ class RestaurantShow extends React.Component {
                 return (
                   <tr key={r.id}>
                     <td><img src={r.image} alt=""></img></td>
-                    <td>{r.menu_item}</td>
+
+                    <td onClick={this.togglePopup.bind(this)}>{r.menu_item}</td>
+
                     <td>{r.item_description}</td>
                   </tr>
                     );
