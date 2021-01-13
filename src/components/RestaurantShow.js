@@ -3,6 +3,9 @@ import {config} from '../Constants'
 import axios from 'axios'
 import { GoogleMap, UseJsApiLoader } from '@react-google-maps/api'
 import GoogleMaps from './GoogleMaps'
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroupItem from 'react-bootstrap/ListGroupItem';
 
 class RestaurantShow extends React.Component {
 
@@ -25,28 +28,21 @@ class RestaurantShow extends React.Component {
   render(){
     return(
       <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Item</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              this.state.menuItems.map(r => {
-                return (
-                  <tr key={r.id}>
-                    <td><img src={r.image} alt=""></img></td>
-                    <td>{r.menu_item}</td>
-                    <td>{r.item_description}</td>
-                  </tr>
-                    );
-              })
-            }
-          </tbody>
-        </table>
+          {
+            this.state.menuItems.map(r => (
+              <Card style={{ width: '18rem'}} key={r.id}>
+              <Card.Body>
+                <Card.Img variant="top" src={r.image} />
+                  <Card.Title>{r.name}</Card.Title>
+                  <Card.Text>This is a description of the restaurant</Card.Text>
+                <ListGroup className="list-group-flush">
+                  <ListGroupItem>{r.menu_item}</ListGroupItem>
+                  <ListGroupItem>{r.item_description}</ListGroupItem>
+                </ListGroup>
+              </Card.Body>
+            </Card>
+              ))
+          }
         <GoogleMaps />
       </div>
     )
