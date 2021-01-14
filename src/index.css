@@ -49,3 +49,41 @@ footer {
   margin-top: 20px;
   align-items: center;
 }
+
+.accordianSpacing {
+  margin: 0px 5px;
+}
+
+.buttonSpacing {
+  margin-left: 5px;
+}
+
+.addButton {
+  margin: 5px 50px;
+}
+
+.descriptionWrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.accordianContainer {
+  cursor: pointer;
+  left: 50px;
+  width: calc(100vw - 250px);
+}
+
+.itemContainer {
+  margin: 8px 0px 8px 50px;
+}
+
+.textContainer {
+  display: inline-block;
+}
+
+.buttonContainer {
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+}
