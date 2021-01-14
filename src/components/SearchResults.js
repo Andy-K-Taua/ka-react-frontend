@@ -3,14 +3,12 @@ import {config} from '../Constants'
 import axios from 'axios'
 import {Route, Link, HashRouter as Router} from 'react-router-dom'
 import RestaurantShow from './RestaurantShow';
-<<<<<<< HEAD
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import GoogleMaps from './GoogleMaps'
 // import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
-=======
->>>>>>> a2dd9f36c7e96557dda4a0dc0b96b54954f5e617
+
 
 
 class SearchResults extends React.Component {
@@ -33,29 +31,24 @@ class SearchResults extends React.Component {
   render() {
     return(
       <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Restaurant</th>
-              <th>Cuisine</th>
-              <th>Address</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              this.state.search.map(r => {
-                return (
-                  <tr key={r.id}>
-                    <td><Link to={`/restaurant/${r.id}`}>{r.name}</Link></td>
-                    <td>{r.cuisine}</td>
-                    <td>{r.address}</td>
-                  </tr>
-                );
-                <Route exact path="/restaurant/:id" component={RestaurantShow}></Route>
-              })
-            }
-          </tbody>
-        </table>
+        {
+          this.state.search.map(r => (
+            <Card style={{ width: '18rem' }} key={r.id}>
+              <Card.Body>
+                <Card.Img variant="top" src="http://placekitten.com/200/200"></Card.Img>
+                <Card.Title>{r.name}</Card.Title>
+                <Card.Text>This is where we write some info about the restaurant</Card.Text>
+              </Card.Body>
+                <ListGroup className="list-group-flush">
+                  <ListGroupItem>{r.address}</ListGroupItem>
+                  <ListGroupItem>{r.cuisine}</ListGroupItem>
+                </ListGroup>
+                <Card.Body>
+                  <Card.Link href={`#/restaurant/${r.id}`}>{r.name}</Card.Link>
+                </Card.Body>
+            </Card>
+          ))
+        }
       </div>
     )
   } // render()
