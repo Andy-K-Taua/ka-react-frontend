@@ -50,7 +50,7 @@ class UserLogin extends React.Component {
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group as={Row} controlId="formHorizontalEmail">
                   <Form.Label column sm={1} className="Email">Email</Form.Label>
-                    <Col sm={3}>
+                    <Col sm={6}>
                       <Form.Control
                         type="email"
                         placeholder="Enter email"
@@ -59,7 +59,7 @@ class UserLogin extends React.Component {
                 </Form.Group>
                 <Form.Group as={Row} controlId="formHorizontalPassword">
                   <Form.Label column sm={1} className="Password">Login Password</Form.Label>
-                    <Col sm={3}>
+                    <Col sm={6}>
                       <Form.Control
                         type="password"
                         placeholder="Enter password"

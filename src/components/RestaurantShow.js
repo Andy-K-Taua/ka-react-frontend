@@ -37,7 +37,7 @@ class RestaurantShow extends React.Component {
       <div>
 
         {this.state.showPopup ?
-          <Popup text="Nutrtion" closePopup={this.togglePopup}/>
+          <Popup text="Nutrition" closePopup={this.togglePopup}/>
           : null
         }
         <table>
@@ -71,7 +71,7 @@ class RestaurantShow extends React.Component {
                   <Card.Title>{r.name}</Card.Title>
                   <Card.Text>This is a description of the restaurant</Card.Text>
                 <ListGroup className="list-group-flush">
-                  <ListGroupItem>{r.menu_item}</ListGroupItem>
+                  <ListGroupItem onClick={this.togglePopup}>{r.menu_item}</ListGroupItem>
                   <ListGroupItem>{r.item_description}</ListGroupItem>
                 </ListGroup>
               </Card.Body>
