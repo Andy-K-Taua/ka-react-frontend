@@ -11,8 +11,15 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta1",
+<<<<<<< HEAD
     "google-map-react": "^2.1.9",
     "google-maps-react": "^2.0.6",
+=======
+
+    "google-map-react": "^2.1.9",
+    "google-maps-react": "^2.0.6",
+
+>>>>>>> cc0decf6a6316176075d13e445f17f149d8c194b
     "cloudinary-react": "^1.6.8",
     "gh-pages": "^3.1.0",
     "popper.js": "^1.16.1",
