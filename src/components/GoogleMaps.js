@@ -7,7 +7,7 @@ const MyLocation = ({ text }) => <div>{text}</div>;
 const RestaurantNearMe = ({ restaurant }) => {
   return (
     <div>{restaurant.name}
-      <img src='http://www.fillmurray.com/100/100'/>
+      <img src='http://www.fillmurray.com/25/25'/>
     </div>
   );
 }; // RestaurantNearMe()

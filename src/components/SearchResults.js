@@ -28,14 +28,6 @@ class SearchResults extends React.Component {
     });
   } // componentDidMount
 
-  componentDidMount(){
-    axios.get(`${config.url.API_URL}/restaurants`)
-    .then(response => {
-      console.log('Response', response)
-    })
-    .catch(error => console.warn(error));
-  }
-
   render() {
     return(
       <div>{

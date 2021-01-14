@@ -1,16 +1,9 @@
 import React from 'react';
-<<<<<<< HEAD
-import {config} from '../Constants'
-import axios from 'axios'
-import { GoogleMap, UseJsApiLoader } from '@react-google-maps/api'
-import GoogleMaps from './GoogleMaps'
-=======
 import {config} from '../Constants';
 import axios from 'axios';
 import { GoogleMap, UseJsApiLoader } from '@react-google-maps/api';
 import GoogleMaps from './GoogleMaps';
 import Popup from './Popup';
->>>>>>> 036bdaddc62437f87d4af70b52985bd462af527c
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
@@ -29,15 +22,11 @@ class RestaurantShow extends React.Component {
       this.setState({restaurant: res.data.restaurant, menuItems: res.data.menuItems});
     })
     .catch(console.warn);
-
   }
 
   render(){
     return(
       <div>
-<<<<<<< HEAD
-        <div className="displayMenus">
-=======
 
         {this.state.showPopup ?
           <Popup text="Nutrtion" closePopup={this.togglePopup}/>
@@ -66,7 +55,6 @@ class RestaurantShow extends React.Component {
           </tbody>
         </table>
 
->>>>>>> 036bdaddc62437f87d4af70b52985bd462af527c
           {
             this.state.menuItems.map(r => (
               <Card style={{ width: '18rem'}} key={r.id}>
@@ -82,10 +70,6 @@ class RestaurantShow extends React.Component {
             </Card>
               ))
           }
-<<<<<<< HEAD
-          </div>
-=======
->>>>>>> 036bdaddc62437f87d4af70b52985bd462af527c
         <GoogleMaps />
       </div>
     )
