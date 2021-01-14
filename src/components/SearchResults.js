@@ -31,7 +31,7 @@ class SearchResults extends React.Component {
   render() {
     return(
       <div>
-<<<<<<< HEAD
+        <div className="displayMenus">
         {
           this.state.search.map(r => (
             <Card style={{ width: '18rem' }} key={r.id}>
@@ -50,30 +50,7 @@ class SearchResults extends React.Component {
             </Card>
           ))
         }
-=======
-        <table>
-          <thead>
-            <tr>
-              <th>Restaurant</th>
-              <th>Cuisine</th>
-              <th>Address</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              this.state.search.map(r => {
-                return (
-                  <tr key={r.id}>
-                    <td><Link to={`/restaurant/${r.id}`}>{r.name}</Link></td>
-                    <td>{r.cuisine}</td>
-                    <td>{r.address}</td>
-                  </tr>
-                );
-              })
-            }
-          </tbody>
-        </table>
->>>>>>> 80dcec65d84ffc2c0f607d1781034568da693955
+        </div>
       </div>
     )
   } // render()

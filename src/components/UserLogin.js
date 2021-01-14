@@ -32,15 +32,11 @@ class UserLogin extends React.Component {
         console.log(res);
         localStorage.setItem("jwtToken", "Bearer "+ res.data.jwt);
         axios.defaults.headers.common["Authorization"]=localStorage.getItem("jwtToken");
-        console.log('Second localStorage', localStorage);
       })
       .catch(function(err){
         console.warn(err);
       });
   }
-
-
-
 
   render(){
     return(
@@ -68,7 +64,7 @@ class UserLogin extends React.Component {
                 </Form.Group>
                 <Form.Group as={Row}>
                   <Col sm={{ span: 10, offset: 1 }}>
-                    <Button variant="primary" type="submit">Login</Button>
+                    <Button variant="primary" type="submit" href="/">Login</Button>
                   </Col>
                 </Form.Group>
             </Form>
