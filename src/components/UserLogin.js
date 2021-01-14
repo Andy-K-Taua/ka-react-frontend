@@ -27,25 +27,28 @@ class UserLogin extends React.Component {
   handleSubmit = (ev) => {
       ev.preventDefault();
       const login = {"auth":{"email": this.state.userEmail, "password": this.state.userPassword}};
-
       axios.post(`${config.url.API_URL}/user_token`, login)
       .then(function(res){
         console.log(res);
         localStorage.setItem("jwtToken", "Bearer "+ res.data.jwt);
         axios.defaults.headers.common["Authorization"]=localStorage.getItem("jwtToken");
-
+        console.log('Second localStorage', localStorage);
       })
       .catch(function(err){
         console.warn(err);
       });
   }
+
+
+
+
   render(){
     return(
       <div>
         <h2 className="signupHeading">Login</h2>
           <div>
             <Form onSubmit={this.handleSubmit}>
-                <Form.Group as={Row} controlId="formHotizontalEmail">
+                <Form.Group as={Row} controlId="formHorizontalEmail">
                   <Form.Label column sm={1} className="Email">Email</Form.Label>
                     <Col sm={3}>
                       <Form.Control

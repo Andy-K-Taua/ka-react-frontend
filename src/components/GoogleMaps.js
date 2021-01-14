@@ -19,13 +19,13 @@ class GoogleMaps extends Component {
 
   // geolocation of the user
   componentDidMount(){
-    
+
     if(!navigator.geolocation) {
       // TODO: Set error message into state
       // status.textContent = 'Geolocation is not supported by your browser';
     } else {
 
-      // status.textContent = 'Locating…';
+      // status.textContent = 'Locating';
       navigator.geolocation.getCurrentPosition(
        (position) => {
          // success
@@ -57,7 +57,7 @@ class GoogleMaps extends Component {
    }
   } // componentDidUpdate()
 
- 
+
   render() {
 
     return (
