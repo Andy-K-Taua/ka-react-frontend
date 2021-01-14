@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import {config} from '../Constants'
-import axios from 'axios'
+import {config} from '../Constants';
+import axios from 'axios';
  
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const RestaurantsNearMe = ({ text }) => <div>{text}</div>;
@@ -10,7 +9,7 @@ const handleApiLoaded = (map, maps) => {
   // use map and maps objects
 };
  
-class SimpleMap extends Component {
+class GoogleMaps extends Component {
   state = {
     lat: '',
     lng: '',
@@ -33,32 +32,30 @@ class SimpleMap extends Component {
          this.setState({
            lat: position.coords.latitude,
            lng: position.coords.longitude           
-        });
-        
+        });    
       }, // end of success
       () => {
         // error
         console.log('Could not access GPS data');
       });
     } // else
-    // request to see nearby restaurants
   } // componentDidMount()
 
   // uses state lat and lng to get nearby restaurants
   componentDidUpdate(){
-    if(this.state.lat === null){
+    // prevent infinite loop occuring
+    if(this.state.lat === ''){
       axios.get(`${config.url.API_URL}/restaurants/location-search`, {params: {lat: this.state.lat, lng: this.state.lng}})
      .then(response => {
      console.log('Response', response);
      console.log('Nearby Restaurants: ', response.data);
       // loop through response.data array and push to the restaurants array in state
-      this.setState({
-        restaurants: response.data
-      });
+      this.setState({restaurants: response.data});
      })
      .catch(error => console.warn(error));
-    }
-  }
+    } else {
+   }
+  } // componentDidUpdate()
 
  
   render() {
@@ -79,63 +76,22 @@ class SimpleMap extends Component {
             text="Your Location"
           />
           {/* Loop through array in state and render a component for each */}
-          <RestaurantsNearMe
-            lat={this.state.lat}
-            lng={this.state.lng}
-            text=''
-          />
+          {
+            this.state.restaurants.map(r => {
+              return (
+                <RestaurantsNearMe
+                lat={r.lat}
+                lng={r.lng}
+                text={r.name}
+                />
+              )
+            })
+          }
+          
         </GoogleMapReact>
       </div>
     );
   }
-=======
-import React from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-
-// Install the API in your terminal via the command "npm i -S @react-google-maps/api"
-
-const containerStyle = {
-    width: '400px',
-    height: '400px'
-};
-
-const center = {
-    lat: -38.0229,
-    lng: 144.3964
-};
-
-function GoogleMaps() {
-    const {isLoaded} = useJsApiLoader({
-        id: 'google-map-script',
-        googleMapsApiKey: ''
-    })
-
-    const [map, setMap] = React.useState(null)
-
-    const onLoad = React.useCallback(function callback(map) {
-        const bounds = new window.google.maps.LatLngBounds();
-        map.fitBounds(bounds)
-        setMap(map)
-    }, [])
-
-    const onUnmount = React.useCallback(function callback(map) {
-        setMap(null)
-    }, [])
-
-    return isLoaded ? (
-        <GoogleMap
-         mapContainerStyle={containerStyle}
-         center={center}
-         zoom={10}
-         onLoad={onLoad}
-         onUnmount={onUnmount}
-        >
-        {/* This is where we add our restaurants */}
-            <></>
-        </GoogleMap>
-    ) : <></>
->>>>>>> cc0decf6a6316176075d13e445f17f149d8c194b
 }
 
 export default React.memo(GoogleMaps)
-
