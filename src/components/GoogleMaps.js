@@ -1,15 +1,14 @@
-<<<<<<< HEAD
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import {config} from '../Constants'
 import axios from 'axios'
- 
+
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const RestaurantsNearMe = ({ text }) => <div>{text}</div>;
 const handleApiLoaded = (map, maps) => {
   // use map and maps objects
 };
- 
+
 class SimpleMap extends Component {
   state = {
     lat: '',
@@ -20,21 +19,21 @@ class SimpleMap extends Component {
 
   // geolocation of the user
   componentDidMount(){
-    
+
     if(!navigator.geolocation) {
       // TODO: Set error message into state
       // status.textContent = 'Geolocation is not supported by your browser';
     } else {
 
-      // status.textContent = 'Locating…';
+      // status.textContent = 'Locating';
       navigator.geolocation.getCurrentPosition(
        (position) => {
          // success
          this.setState({
            lat: position.coords.latitude,
-           lng: position.coords.longitude           
+           lng: position.coords.longitude
         });
-        
+
       }, // end of success
       () => {
         // error
@@ -60,7 +59,7 @@ class SimpleMap extends Component {
     }
   }
 
- 
+
   render() {
 
     return (
@@ -88,8 +87,9 @@ class SimpleMap extends Component {
       </div>
     );
   }
-=======
-import React from 'react';
+}
+
+// import React from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 // Install the API in your terminal via the command "npm i -S @react-google-maps/api"
@@ -134,8 +134,6 @@ function GoogleMaps() {
             <></>
         </GoogleMap>
     ) : <></>
->>>>>>> cc0decf6a6316176075d13e445f17f149d8c194b
 }
 
 export default React.memo(GoogleMaps)
-
