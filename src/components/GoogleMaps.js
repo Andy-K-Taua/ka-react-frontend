@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import {config} from '../Constants'
-import axios from 'axios'
+import {config} from '../Constants';
+import axios from 'axios';
+ 
+const MyLocation = ({ text }) => <div>{text}</div>;
+const RestaurantNearMe = ({ restaurant }) => {
+  return (
+    <div>{restaurant.name}
+      <img src='http://www.fillmurray.com/100/100'/>
+    </div>
+  );
+}; // RestaurantNearMe()
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-const RestaurantsNearMe = ({ text }) => <div>{text}</div>;
 const handleApiLoaded = (map, maps) => {
   // use map and maps objects
 };
@@ -14,7 +21,8 @@ class GoogleMaps extends Component {
     lat: '',
     lng: '',
     zoom: 11,
-    restaurants: []
+    restaurants: [],
+    prevProps: []
   }
 
   // geolocation of the user
@@ -30,35 +38,26 @@ class GoogleMaps extends Component {
        (position) => {
          // success
          this.setState({
-           lat: position.coords.latitude,
-           lng: position.coords.longitude
-        });
-
+            lat: position.coords.latitude,
+            lng: position.coords.longitude           
+         });
+         const params = {params: {lat: position.coords.latitude, lng: position.coords.longitude}}    
+         axios.get(`${config.url.API_URL}/restaurants/location-search`, params)
+         .then(response => {
+            console.log(params)
+            console.log('Response', response);
+            console.log('Nearby Restaurants: ', response.data);
+              // push to the restaurants array in state
+            this.setState({restaurants: response.data});
+         })
+         .catch(error => console.warn(error));
       }, // end of success
       () => {
         // error
         console.log('Could not access GPS data');
       });
     } // else
-    // request to see nearby restaurants
   } // componentDidMount()
-
-  // uses state lat and lng to get nearby restaurants
-  componentDidUpdate(){
-    if(this.state.lat === null){
-      axios.get(`${config.url.API_URL}/restaurants/location-search`, {params: {lat: this.state.lat, lng: this.state.lng}})
-     .then(response => {
-     console.log('Response', response);
-     console.log('Nearby Restaurants: ', response.data);
-      // loop through response.data array and push to the restaurants array in state
-      this.setState({
-        restaurants: response.data
-      });
-     })
-     .catch(error => console.warn(error));
-    }
-  }
-
 
   render() {
 
@@ -72,17 +71,24 @@ class GoogleMaps extends Component {
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         >
-          <AnyReactComponent
+          <MyLocation
             lat={this.state.lat}
             lng={this.state.lng}
             text="Your Location"
           />
           {/* Loop through array in state and render a component for each */}
-          <RestaurantsNearMe
-            lat={this.state.lat}
-            lng={this.state.lng}
-            text=''
-          />
+          {
+            this.state.restaurants.map(r => {
+              return (
+                <RestaurantNearMe key={r.id}
+                lat={r.latitude}
+                lng={r.longitude}
+                restaurant={r}
+                />
+              )
+            })
+          }
+
         </GoogleMapReact>
       </div>
     );

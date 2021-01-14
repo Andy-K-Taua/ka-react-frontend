@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import KraveApp from './components/KraveApp';
 import reportWebVitals from './reportWebVitals';
-// import bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(

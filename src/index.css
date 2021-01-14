@@ -49,7 +49,7 @@ footer {
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(0,0,0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .popup_inner {
@@ -146,4 +146,20 @@ button:hover {
   position: relative;
   width: 115px;
   right: 0px;
+}
+
+.displayMenus {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.searchBar {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
 }
