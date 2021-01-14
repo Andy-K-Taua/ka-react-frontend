@@ -2,6 +2,15 @@ import React from 'react'
 import {config} from '../Constants'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+// Old imports - render use seems to be lost somewhere
+//
+// import {Route, Link, HashRouter as Router} from 'react-router-dom'
+// import RestaurantShow from './RestaurantShow';
+// import Card from 'react-bootstrap/Card';
+// import ListGroup from 'react-bootstrap/ListGroup';
+// import ListGroupItem from 'react-bootstrap/ListGroupItem';
+// import GoogleMaps from './GoogleMaps'
+// import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
 class SearchResults extends React.Component {
 
