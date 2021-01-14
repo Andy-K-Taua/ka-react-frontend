@@ -18,6 +18,7 @@ class RestaurantShow extends React.Component {
     axios.get(`${config.url.API_URL}/restaurants/${this.props.match.params.id}`)
     .then( res => {
       console.log('res', res);
+      console.log('Mounted');
       this.setState({restaurant: res.data.restaurant, menuItems: res.data.menuItems});
     })
     .catch(console.warn);

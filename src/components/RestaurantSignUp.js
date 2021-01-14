@@ -41,6 +41,7 @@ class RestaurantSignUp extends React.Component {
         })
         .then(res => console.log('res:', res))
         .catch(console.warn)
+        console.log('Mounted');
     }
     render(){
         return(
