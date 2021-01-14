@@ -56,6 +56,12 @@ footer {
   align-items: center;
 }
 
+.controlPanel h2, .controlPanel h4 {
+  position: relative;
+  left: 50px;
+  margin-top: 30px;
+}
+
 .accordianSpacing {
   margin: 0px 5px;
 }
@@ -68,12 +74,6 @@ footer {
   margin: 5px 50px;
 }
 
-.descriptionWrap {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .accordianContainer {
   cursor: pointer;
   left: 50px;
@@ -81,16 +81,44 @@ footer {
 }
 
 .itemContainer {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
   margin: 8px 0px 8px 50px;
 }
 
 .textContainer {
   display: inline-block;
+  width: calc(100% - 115px);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .buttonContainer {
   display: inline-block;
-  position: absolute;
+  position: relative;
+  width: 115px;
+  right: 0px;
+}
+
+.headingContainer {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.headingText {
+  display: inline-block;
+  width: calc(100% - 115px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.headingButtons {
+  display: inline-block;
+  position: relative;
+  width: 115px;
   right: 0px;
 }
 
