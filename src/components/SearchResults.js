@@ -11,8 +11,6 @@ class SearchResults extends React.Component {
   
   state = {
     search: [],
-    lat: '',
-    lng: ''
   }
 
   componentDidMount(){

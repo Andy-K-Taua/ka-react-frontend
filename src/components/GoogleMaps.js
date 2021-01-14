@@ -4,17 +4,22 @@ import {config} from '../Constants'
 import axios from 'axios'
  
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const RestaurantsNearMe = ({ text }) => <div>{text}</div>;
+const handleApiLoaded = (map, maps) => {
+  // use map and maps objects
+};
  
 class SimpleMap extends Component {
-  static defaultProps = {
-    center: {
-      lat: 59.955413,
-      lng: 30.337844
-    },
-    zoom: 11
-  };
+  state = {
+    lat: '',
+    lng: '',
+    zoom: 11,
+    restaurants: []
+  }
 
+  // geolocation of the user
   componentDidMount(){
+    
     if(!navigator.geolocation) {
       // TODO: Set error message into state
       // status.textContent = 'Geolocation is not supported by your browser';
@@ -26,8 +31,9 @@ class SimpleMap extends Component {
          // success
          this.setState({
            lat: position.coords.latitude,
-           lng: position.coords.longitude
+           lng: position.coords.longitude           
         });
+        
       }, // end of success
       () => {
         // error
@@ -35,12 +41,24 @@ class SimpleMap extends Component {
       });
     } // else
     // request to see nearby restaurants
-    axios.get(`${config.url.API_URL}/restaurants/location-search`, {params: {lat: -38.01, lng: 144.38}})
+  } // componentDidMount()
+
+  // uses state lat and lng to get nearby restaurants
+  componentDidUpdate(){
+    if(this.state.lat === null){
+      axios.get(`${config.url.API_URL}/restaurants/location-search`, {params: {lat: this.state.lat, lng: this.state.lng}})
      .then(response => {
-     console.log('Response', response)
+     console.log('Response', response);
+     console.log('Nearby Restaurants: ', response.data);
+      // loop through response.data array and push to the restaurants array in state
+      this.setState({
+        restaurants: response.data
+      });
      })
      .catch(error => console.warn(error));
- } // componentDidMount()
+    }
+  }
+
  
   render() {
 
@@ -49,13 +67,21 @@ class SimpleMap extends Component {
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyDR191L1r3AZQruQBZ38g7SekFs78a5b3U' }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+          defaultCenter={{lat: this.state.lat, lng: this.state.lng}}
+          defaultZoom={this.state.zoom}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         >
           <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
+            lat={this.state.lat}
+            lng={this.state.lng}
+            text="Your Location"
+          />
+          {/* Loop through array in state and render a component for each */}
+          <RestaurantsNearMe
+            lat={this.state.lat}
+            lng={this.state.lng}
+            text=''
           />
         </GoogleMapReact>
       </div>
