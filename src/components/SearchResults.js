@@ -56,28 +56,6 @@ class SearchResults extends React.Component {
             </Card>
           ))
         }
-        <table>
-          <thead>
-            <tr>
-              <th>Restaurant</th>
-              <th>Cuisine</th>
-              <th>Address</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              this.state.search.map(r => {
-                return (
-                  <tr key={r.id}>
-                    <td><Link to={`/restaurant/${r.id}`}>{r.name}</Link></td>
-                    <td>{r.cuisine}</td>
-                    <td>{r.address}</td>
-                  </tr>
-                );
-              })
-            }
-          </tbody>
-        </table>
         <GoogleMaps />
       </div>
     )

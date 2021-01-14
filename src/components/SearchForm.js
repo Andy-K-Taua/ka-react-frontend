@@ -24,10 +24,11 @@ class SearchForm extends React.Component {
 
     return(
       <div>
-        <div className="backgroundImg">
+        <div className="backgroundImg"></div>
           <Form onSubmit={this.handleSubmit}>
+            <div className="searchBar">
             <Form.Group as={Row} controlId="formHorizontalSearch">
-              <Form.Label column sm={2} className="searchBar"></Form.Label>
+              <Form.Label column sm={2}></Form.Label>
                 <Col sm={4}>
                   <Form.Control
                     type="text"
@@ -39,8 +40,9 @@ class SearchForm extends React.Component {
                 <Button  type="submit" variant="secondary">Search</Button>
               </Col>
             </Form.Group>
+          </div>
           </Form>
-        </div>
+
       </div>
     )
   } // render()
