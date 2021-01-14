@@ -37,7 +37,7 @@ class SearchForm extends React.Component {
             </Form.Group>
             <Form.Group as={Row}>
               <Col sm={4}>
-                <Button  type="submit" variant="secondary">Search</Button>
+                <Button type="submit" variant="secondary">Search</Button>
               </Col>
             </Form.Group>
           </div>
