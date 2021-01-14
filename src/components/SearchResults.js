@@ -49,7 +49,6 @@ class SearchResults extends React.Component {
             </Card>
           ))
         }
-    
         <GoogleMaps />
       </div>
     )

@@ -94,6 +94,22 @@ footer {
   right: 0px;
 }
 
+.displayMenus {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.searchBar {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .popup {
   position: fixed;
   width: 100%;
@@ -114,12 +130,4 @@ footer {
   margin: auto;
   border-radius: 20px;
   background: white;
-}
-
-h2 {
-  margin-right: 350px;
-}
-
-.searchbutton {
-  margin-left: 60px;
 }

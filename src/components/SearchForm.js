@@ -24,17 +24,17 @@ class SearchForm extends React.Component {
 
     return(
       <div>
-        <div className="backgroundImg">
+        <div className="backgroundImg"></div>
           <Form onSubmit={this.handleSubmit}>
+            <div className="searchBar">
             <Form.Group as={Row} controlId="formHorizontalSearch">
-              <Form.Label column sm={2} className="searchBar"></Form.Label>
+              <Form.Label column sm={2}></Form.Label>
                 <Col sm={4}>
                   <Form.Control
                     type="text"
                     placeholder="What are you kraving today?" onChange={this.handleChange} />
                 </Col>
             </Form.Group>
-          <div className="searchbutton">
             <Form.Group as={Row}>
               <Col sm={4}>
                 <Button type="submit" variant="secondary">Search</Button>
@@ -42,7 +42,7 @@ class SearchForm extends React.Component {
             </Form.Group>
           </div>
           </Form>
-        </div>
+
       </div>
     )
   } // render()

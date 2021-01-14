@@ -16,10 +16,7 @@ class KraveApp extends React.Component {
 
 componentDidMount(){
   axios.defaults.headers.common["Authorization"]=localStorage.getItem("jwtToken")
-  console.log('localStorage.getItem', localStorage);
 }
-
-
 
   render() {
 
