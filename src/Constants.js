@@ -8,7 +8,8 @@ const prod = {
 // Development variables
 const dev = {
   url: {
-    API_URL: 'http://localhost:3000'
+    API_URL: 'http://localhost:3000',
+    GEO_URL: 'https://geolocation-db.com/json/85249190-4601-11eb-9067-21b51bc8dee3'
   }
 };
 
