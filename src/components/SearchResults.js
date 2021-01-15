@@ -19,6 +19,17 @@ class SearchResults extends React.Component {
   }
 
   componentDidMount(){
+    //TODO: use react router in KraveApp to do all route authentication
+    //https://reactrouter.com/native/example/auth-workflow
+    // for now we are just check the localstorage token to test if the user is logged in , not best practice because we have to do this check in every single component.
+    const authHeader = localStorage.getItem("jwtToken");
+    console.log('authHeader', authHeader);
+    if( authHeader === "null" ) {
+      //TODO: pass query string param to route so that you can show a message in the login component to explain to the user why they were redirected there.
+      console.log('got here', this.props);
+      this.props.history.push("/login");
+      return; //prevent the axios request below from happening
+    }
     axios.get(`${config.url.API_URL}/search`, {params: {search: this.props.match.params.query}})
     .then(response => {
       this.setState({search: response.data});
@@ -31,7 +42,9 @@ class SearchResults extends React.Component {
 
   render() {
     return(
-      <div>{
+      <div>
+        <div className="displayMenus">
+        {
           this.state.search.map(r => (
             <Card style={{ width: '18rem' }} key={r.id}>
               <Card.Body>
@@ -49,6 +62,7 @@ class SearchResults extends React.Component {
             </Card>
           ))
         }
+        </div>
         <GoogleMaps />
       </div>
     )

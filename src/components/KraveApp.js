@@ -14,6 +14,16 @@ import ControlPanel from './ControlPanel'
 
 class KraveApp extends React.Component {
 
+  state = {
+    isLoggedIn: false
+  }
+
+  userStatus(answer){
+    this.setState({
+      isLoggedIn: !this.state.isLoggedIn
+    });
+  }
+
 componentDidMount(){
   axios.defaults.headers.common["Authorization"]=localStorage.getItem("jwtToken")
 }

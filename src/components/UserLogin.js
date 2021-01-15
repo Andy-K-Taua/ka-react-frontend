@@ -10,7 +10,8 @@ class UserLogin extends React.Component {
 
   state = {
       userEmail: '',
-      userPassword: ''
+      userPassword: '',
+      errorMessage: ''
   }
 
   handleChangeEmail = (ev) => {
@@ -28,14 +29,23 @@ class UserLogin extends React.Component {
       ev.preventDefault();
       const login = {"auth":{"email": this.state.userEmail, "password": this.state.userPassword}};
       axios.post(`${config.url.API_URL}/user_token`, login)
-      .then(function(res){
+      .then((res) => {
         console.log(res);
-        localStorage.setItem("jwtToken", "Bearer "+ res.data.jwt);
-        axios.defaults.headers.common["Authorization"]=localStorage.getItem("jwtToken");
+        const authHeader =  "Bearer "+ res.data.jwt;
+        localStorage.setItem("jwtToken", authHeader);
+        axios.defaults.headers.common["Authorization"] = authHeader;
+        this.props.history.push("/");
       })
-      .catch(function(err){
-        console.warn(err);
+      .catch((err) => {
+        if(err.response.status === 404) {
+          this.setState({ errorMessage: "Invalid user name or password, please try again" });
+        }
+        console.dir(err);
       });
+  }
+
+  handleLogin = (ev) => {
+
   }
 
   render(){
@@ -43,7 +53,8 @@ class UserLogin extends React.Component {
       <div>
         <h2 className="signupHeading">Login</h2>
           <div>
-            <Form onSubmit={this.handleSubmit}>
+            <span>{this.state.errorMessage}</span>
+            <Form onSubmit={this.handleSubmit} className="centerForm">
                 <Form.Group as={Row} controlId="formHorizontalEmail">
                   <Form.Label column sm={1} className="Email">Email</Form.Label>
                     <Col sm={6}>
@@ -64,7 +75,7 @@ class UserLogin extends React.Component {
                 </Form.Group>
                 <Form.Group as={Row}>
                   <Col sm={{ span: 10, offset: 1 }}>
-                    <Button variant="primary" type="submit" href="/">Login</Button>
+                    <Button variant="primary" type="submit" onClick={this.handlesubmit}>Login</Button>
                   </Col>
                 </Form.Group>
             </Form>
