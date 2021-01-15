@@ -81,6 +81,7 @@ class GoogleMaps extends Component {
             text="Your Location"
           />
           {/* Loop through array in state and render a component for each */}
+          
           {
             this.state.restaurants.map(r => {
               return (
@@ -92,7 +93,7 @@ class GoogleMaps extends Component {
               )
             })
           }
-
+          
         </GoogleMapReact>
       </div>
     );
