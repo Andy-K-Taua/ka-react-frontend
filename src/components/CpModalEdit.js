@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 import axios from 'axios'
 import {config} from '../Constants'
 
-function EditButton(props) {
+function EditMenu(props) {
   const [show, setShow] = useState(false);
   const [menuItem, setMenuItem] = useState("");
   const [description, setDescription] = useState("");
@@ -66,4 +66,4 @@ function EditButton(props) {
   );
 }
 
-export default EditButton
+export default EditMenu

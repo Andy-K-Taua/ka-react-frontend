@@ -4,8 +4,8 @@ import axios from 'axios'
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import EditButton from './CpModalEdit'
-import DeleteButton from './CpModalDelete'
+import EditMenu from './CpModalEdit'
+import DeleteMenu from './CpModalDelete'
 
 class ControlPanel extends React.Component {
 
@@ -63,8 +63,8 @@ class ControlPanel extends React.Component {
                                   <span className="accordianSpacing">{menu.item_description}</span>
                                 </div>
                                 <div className="buttonContainer">
-                                  <EditButton menu={menu} />
-                                  <DeleteButton />
+                                  <EditMenu menu={menu} />
+                                  <DeleteMenu menu={menu} />
                                 </div><br />
                               </div>
                             );

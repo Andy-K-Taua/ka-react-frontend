@@ -64,7 +64,7 @@ class UserLogin extends React.Component {
                 </Form.Group>
                 <Form.Group as={Row}>
                   <Col sm={{ span: 10, offset: 1 }}>
-                    <Button variant="primary" type="submit" href="/">Login</Button>
+                    <Button variant="primary" type="submit" /*href="/"*/>Login</Button>
                   </Col>
                 </Form.Group>
             </Form>
