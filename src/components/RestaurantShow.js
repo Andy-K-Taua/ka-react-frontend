@@ -41,7 +41,7 @@ class RestaurantShow extends React.Component {
           <Popup text="Nutrition" closePopup={this.togglePopup}/>
           : null
         }
-
+          
           {
             this.state.menuItems.map(r => (
               <Card style={{ width: '18rem'}} key={r.id}>
