@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-form {
+.centerForm {
   padding: 25px;
   margin-left: 300px;
 }

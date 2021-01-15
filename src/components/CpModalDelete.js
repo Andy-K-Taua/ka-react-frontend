@@ -1,12 +1,24 @@
 import {useState} from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import {config} from '../Constants'
+import axios from 'axios'
 
-function DeleteButton() {
+function DeleteMenu(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleDelete = () => {
+    setShow(false);
+    axios.delete(`${config.url.API_URL}/menus/${props.menu.id}`)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
 
   return (
     <>
@@ -16,15 +28,15 @@ function DeleteButton() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Confirm Delete</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>Are you sure you want to delete <strong>{props.menu.menu_item}</strong></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          <Button variant="danger" onClick={handleDelete}>
+            Delete
           </Button>
         </Modal.Footer>
       </Modal>
@@ -32,4 +44,4 @@ function DeleteButton() {
   );
 }
 
-export default DeleteButton
+export default DeleteMenu

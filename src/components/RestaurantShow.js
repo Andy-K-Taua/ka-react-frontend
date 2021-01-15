@@ -2,6 +2,7 @@ import React from 'react';
 import {config} from '../Constants'
 import axios from 'axios'
 import GoogleMaps from './GoogleMaps'
+import GoogleMapReact from 'google-map-react';
 import Popup from './Popup';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -11,7 +12,8 @@ class RestaurantShow extends React.Component {
 
   state = {
     restaurant: {},
-    menuItems: []
+    menuItems: [],
+    showPopup: false
   }
 
   componentDidMount(){
@@ -23,6 +25,13 @@ class RestaurantShow extends React.Component {
     .catch(console.warn);
   }
 
+  togglePopup = () => {
+    console.log('togglePopup clicked');
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
+  
   render(){
     return(
       <div>
@@ -51,7 +60,7 @@ class RestaurantShow extends React.Component {
 
           </div>
 
-        <GoogleMaps />
+
       </div>
     )
   } // render

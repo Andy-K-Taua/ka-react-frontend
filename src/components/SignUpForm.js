@@ -60,7 +60,7 @@ class SignUpForm extends React.Component {
           <div>
             <div>
               <h2 className="signupHeading">Sign Up Here</h2>
-                <Form onSubmit={this.handleSubmit}>
+                <Form onSubmit={this.handleSubmit} className="centerForm">
                     <div className="formLayout">
                     <Form.Group as={Row} controlId="formHorizontalSelect">
                       <Form.Label  column sm={2} className="dropDown">Restaurant Owner or Customer?</Form.Label>
