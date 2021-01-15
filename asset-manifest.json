@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/ka-react-frontend/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/ka-react-frontend/static/js/main.8b30a461.chunk.js",
-    "main.js.map": "/ka-react-frontend/static/js/main.8b30a461.chunk.js.map",
-    "runtime-main.js": "/ka-react-frontend/static/js/runtime-main.e5c10fff.js",
-    "runtime-main.js.map": "/ka-react-frontend/static/js/runtime-main.e5c10fff.js.map",
-    "static/js/2.39b6a73b.chunk.js": "/ka-react-frontend/static/js/2.39b6a73b.chunk.js",
-    "static/js/2.39b6a73b.chunk.js.map": "/ka-react-frontend/static/js/2.39b6a73b.chunk.js.map",
-    "static/js/3.1ae23bda.chunk.js": "/ka-react-frontend/static/js/3.1ae23bda.chunk.js",
-    "static/js/3.1ae23bda.chunk.js.map": "/ka-react-frontend/static/js/3.1ae23bda.chunk.js.map",
+    "main.css": "/ka-react-frontend/static/css/main.e000eab8.chunk.css",
+    "main.js": "/ka-react-frontend/static/js/main.7a34c0aa.chunk.js",
+    "main.js.map": "/ka-react-frontend/static/js/main.7a34c0aa.chunk.js.map",
+    "runtime-main.js": "/ka-react-frontend/static/js/runtime-main.a2bea33e.js",
+    "runtime-main.js.map": "/ka-react-frontend/static/js/runtime-main.a2bea33e.js.map",
+    "static/css/2.40b2ded8.chunk.css": "/ka-react-frontend/static/css/2.40b2ded8.chunk.css",
+    "static/js/2.81a9744b.chunk.js": "/ka-react-frontend/static/js/2.81a9744b.chunk.js",
+    "static/js/2.81a9744b.chunk.js.map": "/ka-react-frontend/static/js/2.81a9744b.chunk.js.map",
+    "static/js/3.55d3c542.chunk.js": "/ka-react-frontend/static/js/3.55d3c542.chunk.js",
+    "static/js/3.55d3c542.chunk.js.map": "/ka-react-frontend/static/js/3.55d3c542.chunk.js.map",
     "index.html": "/ka-react-frontend/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/ka-react-frontend/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.39b6a73b.chunk.js.LICENSE.txt": "/ka-react-frontend/static/js/2.39b6a73b.chunk.js.LICENSE.txt"
+    "static/css/2.40b2ded8.chunk.css.map": "/ka-react-frontend/static/css/2.40b2ded8.chunk.css.map",
+    "static/css/main.e000eab8.chunk.css.map": "/ka-react-frontend/static/css/main.e000eab8.chunk.css.map",
+    "static/js/2.81a9744b.chunk.js.LICENSE.txt": "/ka-react-frontend/static/js/2.81a9744b.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/ka-react-frontend/static/media/KraveMainImage.ece04345.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e5c10fff.js",
-    "static/js/2.39b6a73b.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.8b30a461.chunk.js"
+    "static/js/runtime-main.a2bea33e.js",
+    "static/css/2.40b2ded8.chunk.css",
+    "static/js/2.81a9744b.chunk.js",
+    "static/css/main.e000eab8.chunk.css",
+    "static/js/main.7a34c0aa.chunk.js"
   ]
 }
