@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import GoogleMaps from './GoogleMaps'
+import GoogleMapReact from 'google-map-react';
 // import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
 
