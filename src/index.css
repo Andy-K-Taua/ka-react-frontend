@@ -17,13 +17,9 @@ form {
   margin-left: 300px;
 }
 
-.fixedSearch {
+.fixedSearch {}
 
-}
-
-.searchButton {
-
-}
+.searchButton {}
 
 .backgroundImg {
   background-image: url("images/KraveMainImage.jpg");
@@ -40,6 +36,7 @@ footer {
   text-align: center;
   bottom: 0;
   width: 100%;
+  height: 2.5rem;
 }
 
 .navbar {
@@ -147,8 +144,9 @@ footer {
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(0,0,0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
+
 .popup_inner {
   position: absolute;
   left: 25%;
