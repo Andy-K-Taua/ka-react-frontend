@@ -43,7 +43,7 @@ class UserLogin extends React.Component {
       <div>
         <h2 className="signupHeading">Login</h2>
           <div>
-            <Form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit} className="centerForm">
                 <Form.Group as={Row} controlId="formHorizontalEmail">
                   <Form.Label column sm={1} className="Email">Email</Form.Label>
                     <Col sm={6}>
