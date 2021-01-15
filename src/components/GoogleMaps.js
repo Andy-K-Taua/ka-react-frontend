@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import {config} from '../Constants';
 import axios from 'axios';
+
+
  
 const MyLocation = ({ text }) => <div>{text}</div>;
 const RestaurantNearMe = ({ restaurant }) => {
@@ -12,17 +14,17 @@ const RestaurantNearMe = ({ restaurant }) => {
   );
 }; // RestaurantNearMe()
 
-const handleApiLoaded = (map, maps) => {
-  // use map and maps objects
-};
+// const handleApiLoaded = (map, maps) => {
+//   // use map and maps objects
+// };
 
 class GoogleMaps extends Component {
   state = {
     lat: '',
     lng: '',
-    zoom: 11,
+    zoom: 9,
     restaurants: [],
-    prevProps: []
+    prevProps: [],
   }
 
   // geolocation of the user
@@ -56,8 +58,10 @@ class GoogleMaps extends Component {
         // error
         console.log('Could not access GPS data');
       });
-    } // else
+    } // else 
   } // componentDidMount()
+
+  // 
 
   render() {
 
@@ -68,8 +72,8 @@ class GoogleMaps extends Component {
           bootstrapURLKeys={{ key: 'AIzaSyDR191L1r3AZQruQBZ38g7SekFs78a5b3U' }}
           defaultCenter={{lat: this.state.lat, lng: this.state.lng}}
           defaultZoom={this.state.zoom}
-          yesIWantToUseGoogleMapApiInternals
-          onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
+          // yesIWantToUseGoogleMapApiInternals
+          // onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         >
           <MyLocation
             lat={this.state.lat}
@@ -77,6 +81,7 @@ class GoogleMaps extends Component {
             text="Your Location"
           />
           {/* Loop through array in state and render a component for each */}
+          
           {
             this.state.restaurants.map(r => {
               return (
@@ -88,7 +93,7 @@ class GoogleMaps extends Component {
               )
             })
           }
-
+          
         </GoogleMapReact>
       </div>
     );

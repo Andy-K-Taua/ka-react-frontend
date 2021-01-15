@@ -3,9 +3,12 @@ import {config} from '../Constants'
 import axios from 'axios'
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import EditMenu from './CpModalEdit'
-import DeleteMenu from './CpModalDelete'
+import EditMenu from './CpMenuEdit'
+import DeleteMenu from './CpMenuDelete'
+import EditRest from './CpRestEdit'
+import DeleteRest from './CpRestDelete'
+import CreateMenu from './CpMenuCreate'
+import CreateRest from './CpRestCreate'
 
 class ControlPanel extends React.Component {
 
@@ -47,8 +50,8 @@ class ControlPanel extends React.Component {
                           <span className="accordianSpacing"><em>{item.cuisine}</em></span>
                         </div>
                         <div className="headingButtons">
-                          <Button variant="outline-primary" size="sm" className="buttonSpacing">Edit</Button>
-                          <Button variant="outline-danger" size="sm" className="buttonSpacing">Delete</Button>
+                          <EditRest restaurant={item} />
+                          <DeleteRest restaurant={item} />
                         </div>
                       </div>
                     </Accordion.Toggle>
@@ -71,14 +74,14 @@ class ControlPanel extends React.Component {
                           })
                         }
                         <br />
-                        <Button variant="primary" size="sm" className="addButton">Add Menu Item</Button>
+                        <CreateMenu restaurantId={item.id} />
                       </Card.Body>
                     </Accordion.Collapse>
                   </Card>
                 );
               })
             }
-            <Button variant="primary" className="addButton">Add Restaurant</Button>
+            <CreateRest userId={this.state.user.id} />
           </Accordion>
         }
       </div>
