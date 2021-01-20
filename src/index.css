@@ -17,10 +17,6 @@ code {
   margin-left: 300px;
 }
 
-.fixedSearch {}
-
-.searchButton {}
-
 .backgroundImg {
   background-image: url("images/KraveMainImage.jpg");
   background-size: cover;
@@ -129,10 +125,6 @@ footer {
 .searchBar {
   border: 1px solid black;
   display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  align-items: center;
-  justify-content: space-evenly;
 }
 
 .popup {

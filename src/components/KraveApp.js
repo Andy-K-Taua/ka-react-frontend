@@ -1,6 +1,5 @@
 import React from 'react'
-import axios from 'axios'
-import {Route, Link, HashRouter as Router} from 'react-router-dom'
+import {Route, HashRouter as Router} from 'react-router-dom'
 import RestaurantSignUp from './RestaurantSignUp'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
@@ -8,7 +7,6 @@ import SignUpForm from './SignUpForm'
 import UserLogin from './UserLogin'
 import RestaurantShow from './RestaurantShow'
 import GoogleMaps from './GoogleMaps'
-// import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import NavBar from './NavBar';
 import ControlPanel from './ControlPanel'
 
@@ -23,10 +21,6 @@ class KraveApp extends React.Component {
       isLoggedIn: !this.state.isLoggedIn
     });
   }
-
-componentDidMount(){
-  axios.defaults.headers.common["Authorization"]=localStorage.getItem("jwtToken")
-}
 
   render() {
 
