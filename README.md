@@ -4,10 +4,10 @@
 We used React, Bootstrap and Ruby-on-Rails for the backend
 
 ### Team Members
-Sam Skinner - 
-Bruna Barbosa de Souza
-Andy Kalasini-Taua
-Alistair Gray - https://github.com/alistairgray
+- Sam Skinner - https://github.com/sam-sjs/
+- Bruna Barbosa de Souza
+- Andy Kalasini-Taua
+- Alistair Gray - https://github.com/alistairgray
 
 ### Features 
 The project was aimed to solve an unmet need in the market to display, share and search for restaurant menus with dietary information.
