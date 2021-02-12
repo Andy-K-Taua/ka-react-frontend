@@ -5,7 +5,7 @@ We used React, Bootstrap and Ruby-on-Rails for the backend
 
 ### Team Members
 - Sam Skinner - https://github.com/sam-sjs/
-- Bruna Barbosa de Souza
+- Bruna Barbosa de Souza - https://github.com/brunabdesouza
 - Andy Kalasini-Taua
 - Alistair Gray - https://github.com/alistairgray
 
